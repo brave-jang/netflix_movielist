@@ -1,0 +1,13 @@
+DATABASES = {
+    'default': {
+        'ENGINE' : 'django.db.backends.mysql',
+        'NAME' :'netflix'
+        'USER' : 'root'
+        'PASSWORD' : 'gkrrl2027@%'
+        'HOST' : 'localhost'
+        'PORT' : '3306'
+        },
+    }
+}
+
+SECRET_KEY = 'django-insecure-!6(j9%#&rc(^9hkj)53_&f+io-#2ob67-a!1pp8m&l+q46^!$q'

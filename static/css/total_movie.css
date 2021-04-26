@@ -1,0 +1,28 @@
+.movie {
+    display: flex;
+    width: 100%;
+    margin: 20px;
+}
+
+.movie-img {
+    height: 163px;
+    width: 112px;
+}
+
+.movie-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+.movie-context {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.movie-context__title {
+    font-size: 25px;
+    font-weight: 600;
+}

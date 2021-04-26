@@ -1,0 +1,23 @@
+.pagination {
+    margin-left: 30%;
+    width: 100%;
+}
+
+.pagination-ul {
+    list-style: none;
+}
+
+.pagination-ul li {
+    float: left;
+    margin: 5px;
+}
+
+.page-link {
+    text-decoration: none;
+    color: black;
+}
+
+.page-link__disabled {
+    pointer-events: none;
+    cursor: default;
+}

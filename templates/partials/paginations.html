@@ -1,0 +1,61 @@
+<div class=pagination>
+    <ul class="pagination-ul">
+      {% if movie_list.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">
+                맨 처음으로
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{movie_list.previous_page_number}}">
+                이전
+            </a>
+        </li>
+      {% else %}
+        <li class="page-item">
+            <a class="page-link__disabled" style="color: rgba(0, 0, 0, 0.3);">
+                맨 처음으로
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link__disabled" style="color: rgba(0, 0, 0, 0.3);">
+                이전
+            </a>
+        </li>
+      {% endif %} 
+      
+      {% for page in page_obj %}
+      <li class="page-item">
+            {% if page == movie_list.number %}
+            <a class="page-link" href="?page={{page}}" style="color: aqua;">{{page}}</a>
+            {% else %}
+            <a class="page-link" href="?page={{page}}">{{page}}</a>
+            {% endif %}
+      </li>
+      {% endfor %} 
+      
+      {% if movie_list.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{movie_list.next_page_number}}">
+            다음
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{end_page}}">
+            맨 끝으로
+        </a>
+      </li>
+      {% else %}
+        <li class="page-item">
+            <a class="page-link__disabled" style="color: rgba(0, 0, 0, 0.3);">
+                다음
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link__disabled" style="color: rgba(0, 0, 0, 0.3);">
+                맨 끝으로
+            </a>
+        </li>
+      {% endif %}
+    </ul>
+</div>
