@@ -11,9 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-import json
 from pathlib import Path
-from django.core.exceptions import ImproperlyConfigured
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,19 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-secret_file = os.path.join(BASE_DIR, 'secrets.json')
-
-with open(secret_file) as f:
-    secrets = json.loads(f.read())
-
-def get_secret(setting, secrets=secrets):
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {0} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
-
-SECRET_KEY = get_secret("SECRET_KEY")
+SECRET_KEY = 'django-insecure-!6(j9%#&rc(^9hkj)53_&f+io-#2ob67-a!1pp8m&l+q46^!$q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -94,17 +81,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+DB_PASSWORD = os.environ.get("PASSWORD")
+
 DATABASES = {
     'default': {
-        'ENGINE' : 'django.db.backends.mysql',
-        'NAME' :'netflix',
+        'ENGINE' : "django.db.backends.mysql",
+        'NAME' : "netflix",
         'USER' : 'root',
-        'PASSWORD' : 'gkrrl2027@%',
-        'HOST' : 'localhost',
-        'PORT' : '3306'
+        'PASSWORD' : DB_PASSWORD,
+        'HOST' : "localhost",
+        'PORT' : "3306"
     },
 }
-
 
 
 # Password validation
